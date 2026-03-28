@@ -16,6 +16,7 @@ nav {
   background: #ff4d88;
   color: white;
   padding: 15px;
+  z-index: 1000;
 }
 
 nav h2 {
@@ -130,7 +131,6 @@ iframe {
 }
 
 /* ---------- TABS / SERVICE ---------- */
-
 .tabs {
   margin-bottom: 20px;
   display: flex;
@@ -153,18 +153,7 @@ iframe {
   background: #e6005c;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .tabs {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tabs button {
-    width: 90%;
-    margin: 5px 0;
-  }
-}
+/* ---------- SERVICE BOX / CARDS ---------- */
 .service-box {
   display: flex;
   flex-wrap: wrap;
@@ -173,10 +162,10 @@ iframe {
   margin-top: 20px;
 }
 
-/* ---------- CARDS ---------- */
 .card {
   width: 160px;
   padding: 10px;
+  text-align: center;
 }
 
 .card img {
@@ -196,60 +185,70 @@ iframe {
   margin-top: 10px;
 }
 
-/* ---------- MOBILE FIX ---------- */
-@media (max-width: 768px) {
-  .service-box {
-    flex-direction: column;  
-    align-items: center;
-    gap:15px;
-  }
-
-  .card {
-    width: 90%;              
-    margin-bottom: 15px;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;             /* make images responsive on mobile */
-  }
-}
-/* ---------- POPUP ---------- */
-#popup, #gallery-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.9);
-  z-index: 10000;
-}
-
-#popup img, #gallery-popup img {
-  width: 90%;
-  max-width: 600px;
-  border-radius: 10px;
-}
-
 /* ---------- OFFERS / REVIEWS ---------- */
-
 .offer, .review {
-  width: 160px;      /* desktop size */
+  width: 160px;      
   padding: 15px;
-  margin: 20px auto; /* center horizontally */
+  margin: 20px auto; 
   border-radius: 10px;
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .offer, .review {
-    width: 90%;        /* almost full width on mobile */
-    margin-top: 15px;
-  }
+/* ---------- GALLERY ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  padding: 20px;
+  margin-top: 80px;
 }
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#gallery-popup {
+  position: fixed;
+  top: 60px;               /* leaves space for navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px); /* reduced height */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;           /* still above page content but below navbar */
+  overflow-y: auto;        /* allows scrolling if images too big */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#gallery-popup img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* IMAGE RESPONSIVE */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section img {
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
 /* ---------- ABOUT ---------- */
 .about-section {
   padding: 50px;
@@ -280,65 +279,7 @@ iframe {
   color: #ff4d88;
 }
 
-/* ---------- GALLERY ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
-  padding: 20px;
-  margin-top: 80px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* Gallery popup container */
-#gallery-popup {
-  position: fixed;       /* Stay on top of everything */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;         /* Hidden by default */
-  justify-content: center; 
-  align-items: center;
-  background: rgba(0,0,0,0.9); /* Dark overlay */
-  z-index: 9999;         /* Above navbar, floating icons */
-}
-
-/* Gallery popup image */
-#gallery-popup img {
-  max-width: 90%;        /* Fit nicely on screen */
-  max-height: 80%;       /* Prevent too big zoom */
-  border-radius: 10px;   /* Rounded corners */
-  object-fit: contain;   /* Keep aspect ratio */
-  transition: 0.3s;      /* Smooth zoom effect */
-  cursor: pointer;       /* Indicate clickable */
-}
-
-/* ---------- IMAGE RESPONSIVE ---------- */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-section img {
-  width: 300px;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-/* ---------- MOBILE ---------- */
+/* ===================== MOBILE FIX ===================== */
 @media (max-width: 768px) {
 
   /* Navbar stack + hamburger */
@@ -376,8 +317,27 @@ section img {
     padding: 20px;
   }
 
+  /* Cards responsive */
+  .service-box {
+    flex-direction: column;  
+    align-items: center;
+    gap: 15px;
+  }
+
   .card {
-    width: 90%;
+    width: 90%;              
+    margin-bottom: 15px;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tabs responsive */
+  .tabs {
+    flex-direction: column;
+    align-items: center;
   }
 
   .tabs button {
@@ -385,6 +345,33 @@ section img {
     margin: 5px 0;
   }
 
+  /* Offers / Reviews */
+  .offer, .review {
+    width: 90%;        
+    margin-top: 15px;
+  }
+
+  /* Hero images */
+  section img {
+    width: 90%;
+  }
+
+  /* About section */
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  /* Gallery */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* WhatsApp / Social */
   .whatsapp {
     right: 10px;
     bottom: 10px;
@@ -395,38 +382,4 @@ section img {
     left: 50%;
     transform: translateX(-50%);
   }
-
-  section img {
-    width: 90%;
-  }
-
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-#gallery-popup {
-  position: fixed;
-  top: 50%;                 /* center vertically */
-  left: 50%;                /* center horizontally */
-  transform: translate(-50%, -50%); /* center properly */
-  width: 90%;
-  max-width: 600px;
-  height: auto;
-  display: none;
-  z-index: 10000;           /* higher than navbar */
-}
-
-#gallery-popup img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
 }
