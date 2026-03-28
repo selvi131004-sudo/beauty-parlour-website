@@ -6,9 +6,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ffe4ec, #fff);
-
-  /* ADD THIS LINE */
-  padding-top: 70px; /* adjust if navbar is taller */
 }
 
 /* ---------- NAVBAR ---------- */
@@ -19,13 +16,6 @@ nav {
   background: #ff4d88;
   color: white;
   padding: 15px;
-
-  /* ADD THESE LINES */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
 }
 
 nav h2 {
@@ -182,10 +172,6 @@ iframe {
   gap: 15px;
   margin-top: 20px;
 }
-.service-box {
-  position: relative;
-  z-index: 1; /* below navbar */
-}
 
 /* ---------- CARDS ---------- */
 .card {
@@ -295,13 +281,9 @@ iframe {
 }
 
 /* ---------- GALLERY ---------- */
-
-/* ---------- GALLERY ---------- */
-
-/* Responsive gallery grid */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* auto adjust columns */
+  grid-template-columns: repeat(6, 1fr);
   gap: 15px;
   padding: 20px;
   margin-top: 80px;
@@ -318,20 +300,6 @@ iframe {
 
 .gallery img:hover {
   transform: scale(1.05);
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    gap: 10px;
-    padding: 15px;
-  }
-
-  .gallery img {
-    height: 120px;  /* keep all images uniform and visible */
-    object-fit: cover;
-  }
 }
 
 /* Gallery popup container */
