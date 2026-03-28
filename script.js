@@ -69,9 +69,18 @@ window.onload = function () {
   let firstBtn = document.querySelector(".tabs button");
   if(firstBtn) firstBtn.classList.add("active");
 };
+
+// Function to open gallery popup with clicked image
 function openGalleryImage(src) {
-  document.getElementById("gallery-popup").style.display = "flex";
-  document.getElementById("gallery-popup-img").src = src;
+  const popup = document.getElementById("gallery-popup");
+  const img = document.getElementById("gallery-popup-img");
+  img.src = src;          // Set clicked image
+  popup.style.display = "flex"; // Show popup
+}
+
+// Function to close gallery popup
+function closeGalleryPopup() {
+  document.getElementById("gallery-popup").style.display = "none";
 }
 
 function closeGalleryPopup() {

@@ -1,13 +1,18 @@
+/* =====================
+   CLEAN CSS FOR BEAUTY PARLOUR
+===================== */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ffe4ec, #fff);
 }
 
-/* NAVBAR */
+/* ---------- NAVBAR ---------- */
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #ff4d88;
   color: white;
   padding: 15px;
@@ -17,14 +22,11 @@ nav h2 {
   margin: 0;
 }
 
+/* Desktop menu always visible */
 nav ul {
   display: flex;
   list-style: none;
-  margin: 0;
-}
-
-nav ul li {
-  margin-left: 15px;
+  gap: 20px;
 }
 
 nav ul li a {
@@ -33,41 +35,38 @@ nav ul li a {
   font-weight: bold;
 }
 
-/* SECTION */
-section {
-  padding: 40px;
-  text-align: center;
+/* Hamburger toggle ☰ */
+.menu-toggle {
+  display: none;   /* Desktop hidden */
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
 }
 
-/* HERO SECTION */
+/* ---------- HERO / SECTION ---------- */
 section {
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  text-align: center;
   background: linear-gradient(rgba(255,77,136,0.6), rgba(255,255,255,0.6)),
               url("about.jpg");
   background-size: cover;
   background-position: center;
-
-  color: #333;
+  color: #fff;
 }
 
 section h1 {
   font-size: 36px;
-  color: #fff;
 }
 
 section p {
   font-size: 18px;
-  color: #fff;
 }
-/* CARD */
 
-
-/* BUTTON */
+/* ---------- BUTTON ---------- */
 .btn {
   display: inline-block;
   background: #ff4d88;
@@ -77,22 +76,21 @@ section p {
   border-radius: 5px;
 }
 
-/* FORM */
+/* ---------- FORM ---------- */
 input, textarea {
   width: 80%;
   padding: 10px;
   margin: 10px;
 }
 
-/* MAP */
+/* ---------- MAP ---------- */
 iframe {
   width: 100%;
   height: 300px;
   border: none;
 }
 
-
-/* WHATSAPP FLOAT */
+/* ---------- WHATSAPP FLOAT ---------- */
 .whatsapp {
   position: fixed;
   bottom: 20px;
@@ -102,16 +100,21 @@ iframe {
   font-size: 22px;
   padding: 15px;
   border-radius: 50%;
-  z-index: 9999;   /* முக்கியம் 🔥 */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/* SOCIAL ICONS */
+
+/* ---------- SOCIAL ICONS ---------- */
 .social-icons {
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;   /* above WhatsApp */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 15px;
+  z-index: 9999;
 }
 
 .social-icons img {
@@ -126,6 +129,7 @@ iframe {
   transform: scale(1.1);
 }
 
+/* ---------- TABS / SERVICE ---------- */
 .tabs {
   margin-bottom: 20px;
 }
@@ -145,33 +149,23 @@ iframe {
 }
 
 .service-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
   margin-top: 20px;
 }
 
-
-
-
-/* POPUP */
-#popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.7);
-}
-
-#popup img {
-  width: 80%;        /* screen full ஆகாது */
-  max-width: 400px;  /* max limit */
-  border-radius: 10px;
+/* ---------- CARDS ---------- */
+.card {
+  width: 160px;
+  padding: 10px;
 }
 
 .card img {
   width: 100%;
+  height: 120px;
+  object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
@@ -184,65 +178,164 @@ iframe {
 .card .btn {
   margin-top: 10px;
 }
+
+/* ---------- POPUP ---------- */
+#popup, #gallery-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
   justify-content: center;
   align-items: center;
+  background: rgba(0,0,0,0.9);
+  z-index: 10000;
 }
 
-#popup img {
-  max-width: 90%;
+#popup img, #gallery-popup img {
+  width: 90%;
+  max-width: 600px;
   border-radius: 10px;
 }
 
-/* OFFERS */
+/* ---------- OFFERS / REVIEWS ---------- */
 .offer {
   background: #fff0f5;
   padding: 15px;
   margin: 10px;
   border-radius: 10px;
+  color: #333;        /* text color added */
 }
 
-/* REVIEWS */
 .review {
   background: #fff;
   padding: 15px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0 0 5px #ccc;
+  color: #333;        /* text color added */
 }
-/* FLEX GRID */
-.service-box {
+/* ---------- ABOUT ---------- */
+.about-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.about-container {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-img img {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ccc;
+}
+
+.about-text {
+  max-width: 400px;
+  text-align: left;
+}
+
+.about-text h2 {
+  color: #ff4d88;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 15px;
+  padding: 20px;
+  margin-top: 80px;
 }
 
-.card {
-  width: 160px;   /* small size */
-  padding: 10px;
-}
-
-.card img {
+.gallery img {
   width: 100%;
-  height: 120px;      /* same height */
-  object-fit: cover;  /* crop properly */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* NAVBAR MOBILE */
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Gallery popup container */
+#gallery-popup {
+  position: fixed;       /* Stay on top of everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;         /* Hidden by default */
+  justify-content: center; 
+  align-items: center;
+  background: rgba(0,0,0,0.9); /* Dark overlay */
+  z-index: 9999;         /* Above navbar, floating icons */
+}
+
+/* Gallery popup image */
+#gallery-popup img {
+  max-width: 90%;        /* Fit nicely on screen */
+  max-height: 80%;       /* Prevent too big zoom */
+  border-radius: 10px;   /* Rounded corners */
+  object-fit: contain;   /* Keep aspect ratio */
+  transition: 0.3s;      /* Smooth zoom effect */
+  cursor: pointer;       /* Indicate clickable */
+}
+
+/* ---------- IMAGE RESPONSIVE ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section img {
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* ---------- MOBILE ---------- */
 @media (max-width: 768px) {
 
+  /* Navbar stack + hamburger */
   nav {
     flex-direction: column;
     text-align: center;
   }
 
   nav ul {
+    display: none;
     flex-direction: column;
-    padding: 0;
+    background: #ff4d88;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  nav ul.active {
+    display: flex;
   }
 
   nav ul li {
     margin: 10px 0;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 
   section {
@@ -258,111 +351,21 @@ iframe {
     margin: 5px 0;
   }
 
-  .social-icons {
-    left: 10px;
-    bottom: 10px;
-  }
-
   .whatsapp {
     right: 10px;
     bottom: 10px;
   }
-}
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-section img {
-  width: 300px;
-  margin: 10px;
-  border-radius: 10px;
-}
+  .social-icons {
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-@media (max-width: 768px) {
   section img {
     width: 90%;
   }
-}
-/* Default desktop menu */
-nav ul {
-  display: flex;        /* Desktop always visible */
-  list-style: none;
-  gap: 20px;
-}
 
-/* Hamburger hidden on desktop */
-nav ul{
-  display: flex;
-  list-style:none;
-}
-
-.menu-toggle {
-  display: none;        /* Desktop ல் ☰ hide */
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-
-  .menu-toggle {
-    display: block;    /* Mobile ல் ☰ show */
-  }
-
-  nav ul {
-    display: none;     /* Mobile hidden by default */
-    flex-direction: column;
-    background: #ff4d88;
-    width: 100%;
-    position: absolute;
-    top: 60px;         /* adjust navbar height */
-    left: 0;
-    padding: 10px 0;
-    z-index: 999;
-  }
-
-  nav ul.active {       /* JS toggled class */
-    display: flex;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-    text-align: center;
-  }
-}
-/* ABOUT SECTION */
-.about-section {
-  padding: 50px;
-  text-align: center;
-}
-
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-/* IMAGE */
-.about-img img {
-  width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #ccc;
-}
-
-/* TEXT */
-.about-text {
-  max-width: 400px;
-  text-align: left;
-}
-
-.about-text h2 {
-  color: #ff4d88;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
   .about-container {
     flex-direction: column;
     text-align: center;
@@ -371,44 +374,8 @@ nav ul{
   .about-text {
     text-align: center;
   }
-}
-.gallery {
-  margin-top: 80px; /* navbar height adjust */
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
-  padding: 20px;
-}
 
-.gallery img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-#gallery-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.9);
-  z-index: 1000;
-}
-
-#gallery-popup img {
-  width: 90%;
-  max-width: 600px;
-  border-radius: 10px;
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
