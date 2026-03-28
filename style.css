@@ -6,6 +6,9 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ffe4ec, #fff);
+
+  /* ADD THIS LINE */
+  padding-top: 70px; /* adjust if navbar is taller */
 }
 
 /* ---------- NAVBAR ---------- */
@@ -16,7 +19,13 @@ nav {
   background: #ff4d88;
   color: white;
   padding: 15px;
-  z-index: 1000;
+
+  /* ADD THESE LINES */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 nav h2 {
@@ -131,6 +140,7 @@ iframe {
 }
 
 /* ---------- TABS / SERVICE ---------- */
+
 .tabs {
   margin-bottom: 20px;
   display: flex;
@@ -153,7 +163,18 @@ iframe {
   background: #e6005c;
 }
 
-/* ---------- SERVICE BOX / CARDS ---------- */
+/* MOBILE */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabs button {
+    width: 90%;
+    margin: 5px 0;
+  }
+}
 .service-box {
   display: flex;
   flex-wrap: wrap;
@@ -161,11 +182,15 @@ iframe {
   gap: 15px;
   margin-top: 20px;
 }
+.service-box {
+  position: relative;
+  z-index: 1; /* below navbar */
+}
 
+/* ---------- CARDS ---------- */
 .card {
   width: 160px;
   padding: 10px;
-  text-align: center;
 }
 
 .card img {
@@ -185,70 +210,60 @@ iframe {
   margin-top: 10px;
 }
 
-/* ---------- OFFERS / REVIEWS ---------- */
-.offer, .review {
-  width: 160px;      
-  padding: 15px;
-  margin: 20px auto; 
-  border-radius: 10px;
-  text-align: center;
-}
+/* ---------- MOBILE FIX ---------- */
+@media (max-width: 768px) {
+  .service-box {
+    flex-direction: column;  
+    align-items: center;
+    gap:15px;
+  }
 
-/* ---------- GALLERY ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
-  padding: 20px;
-  margin-top: 80px;
-}
+  .card {
+    width: 90%;              
+    margin-bottom: 15px;
+  }
 
-.gallery img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+  .card img {
+    width: 100%;
+    height: auto;             /* make images responsive on mobile */
+  }
 }
-
-#gallery-popup {
+/* ---------- POPUP ---------- */
+#popup, #gallery-popup {
   position: fixed;
-  top: 60px;               /* leaves space for navbar */
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 60px); /* reduced height */
+  height: 100%;
   display: none;
   justify-content: center;
   align-items: center;
   background: rgba(0,0,0,0.9);
-  z-index: 1000;           /* still above page content but below navbar */
-  overflow-y: auto;        /* allows scrolling if images too big */
-  padding-top: 10px;
-  padding-bottom: 10px;
+  z-index: 10000;
 }
 
-#gallery-popup img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-/* IMAGE RESPONSIVE */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-section img {
-  width: 300px;
-  margin: 10px;
+#popup img, #gallery-popup img {
+  width: 90%;
+  max-width: 600px;
   border-radius: 10px;
 }
 
+/* ---------- OFFERS / REVIEWS ---------- */
+
+.offer, .review {
+  width: 160px;      /* desktop size */
+  padding: 15px;
+  margin: 20px auto; /* center horizontally */
+  border-radius: 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .offer, .review {
+    width: 90%;        /* almost full width on mobile */
+    margin-top: 15px;
+  }
+}
 /* ---------- ABOUT ---------- */
 .about-section {
   padding: 50px;
@@ -279,7 +294,83 @@ section img {
   color: #ff4d88;
 }
 
-/* ===================== MOBILE FIX ===================== */
+/* ---------- GALLERY ---------- */
+
+/* ---------- GALLERY ---------- */
+
+/* Responsive gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* auto adjust columns */
+  gap: 15px;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .gallery img {
+    height: 120px;  /* keep all images uniform and visible */
+    object-fit: cover;
+  }
+}
+
+/* Gallery popup container */
+#gallery-popup {
+  position: fixed;       /* Stay on top of everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;         /* Hidden by default */
+  justify-content: center; 
+  align-items: center;
+  background: rgba(0,0,0,0.9); /* Dark overlay */
+  z-index: 9999;         /* Above navbar, floating icons */
+}
+
+/* Gallery popup image */
+#gallery-popup img {
+  max-width: 90%;        /* Fit nicely on screen */
+  max-height: 80%;       /* Prevent too big zoom */
+  border-radius: 10px;   /* Rounded corners */
+  object-fit: contain;   /* Keep aspect ratio */
+  transition: 0.3s;      /* Smooth zoom effect */
+  cursor: pointer;       /* Indicate clickable */
+}
+
+/* ---------- IMAGE RESPONSIVE ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section img {
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* ---------- MOBILE ---------- */
 @media (max-width: 768px) {
 
   /* Navbar stack + hamburger */
@@ -317,27 +408,8 @@ section img {
     padding: 20px;
   }
 
-  /* Cards responsive */
-  .service-box {
-    flex-direction: column;  
-    align-items: center;
-    gap: 15px;
-  }
-
   .card {
-    width: 90%;              
-    margin-bottom: 15px;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Tabs responsive */
-  .tabs {
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
   }
 
   .tabs button {
@@ -345,33 +417,6 @@ section img {
     margin: 5px 0;
   }
 
-  /* Offers / Reviews */
-  .offer, .review {
-    width: 90%;        
-    margin-top: 15px;
-  }
-
-  /* Hero images */
-  section img {
-    width: 90%;
-  }
-
-  /* About section */
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  /* Gallery */
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* WhatsApp / Social */
   .whatsapp {
     right: 10px;
     bottom: 10px;
@@ -382,4 +427,38 @@ section img {
     left: 50%;
     transform: translateX(-50%);
   }
+
+  section img {
+    width: 90%;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+#gallery-popup {
+  position: fixed;
+  top: 50%;                 /* center vertically */
+  left: 50%;                /* center horizontally */
+  transform: translate(-50%, -50%); /* center properly */
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  display: none;
+  z-index: 10000;           /* higher than navbar */
+}
+
+#gallery-popup img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
