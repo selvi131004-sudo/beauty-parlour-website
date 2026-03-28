@@ -292,6 +292,11 @@ nav ul {
 }
 
 /* Hamburger hidden on desktop */
+nav ul{
+  display: flex;
+  list-style:none;
+}
+
 .menu-toggle {
   display: none;        /* Desktop ல் ☰ hide */
 }
