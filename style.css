@@ -148,6 +148,9 @@ iframe {
   background: #e6005c;
 }
 
+
+
+
 .service-box {
   display: flex;
   flex-wrap: wrap;
@@ -179,6 +182,22 @@ iframe {
   margin-top: 10px;
 }
 
+/* ---------- MOBILE FIX ---------- */
+@media (max-width: 768px) {
+  .service-box {
+    flex-direction: column;  
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;              
+    margin-bottom: 15px;
+  }
+
+  .card img {
+    height: auto;             /* make images responsive on mobile */
+  }
+}
 /* ---------- POPUP ---------- */
 #popup, #gallery-popup {
   position: fixed;
