@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Sumithra Studio</h2>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h2>Gallery</h2>
+
+  <div class="gallery">
+    <!-- IMAGE CLICK -->
+    <img src="img1.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img2.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img3.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img4.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img5.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img6.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img7.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img8.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img9.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img10.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img11.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img12.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img13.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img14.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img15.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img16.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img17.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img18.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img19.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img20.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img21.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img22.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img23.jpeg" onclick="openGalleryImage(this.src)">
+    <img src="img24.jpeg" onclick="openGalleryImage(this.src)">
+
+  </div>
+</section>
+<div id="gallery-popup" onclick="closeGalleryPopup()">
+  <img id="gallery-popup-img">
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav>
+  <h2>Sumithra Studio</h2>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h2>Our Services</h2>
+<div class="tabs">
+  <button onclick="showService('skin', event)">Skin</button>
+  <button onclick="showService('hair', event)">Hair</button>
+  <button onclick="showService('makeup', event)">Makeup</button>
+  <button onclick="showService('mehendi', event)">Mehendi</button>
+  <button onclick="showService('extra', event)">Extra Services</button>
+</div>
+
+  <!-- SKIN -->
+  <div id="skin" class="service-box">
+    <div class="card">
+      Facial - ₹500 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Threading - ₹50 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Waxing - ₹200 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Bleach - ₹300 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Clean-up - ₹300 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      D-Tan - ₹350 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+  </div>
+
+
+  <!-- HAIR -->
+  <div id="hair" class="service-box" style="display:none;">
+    <div class="card">
+      <img src="layer1.jpeg" onclick="openImage(this.src)">
+      <p>Layer Cut - ₹600</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="butterfly.jpeg" onclick="openImage(this.src)">
+      <p>Butterfly Cut - ₹800</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="Staright.jpeg" onclick="openImage(this.src)">
+      <p>Straight Cut - ₹150</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="Ushape.jpeg" onclick="openImage(this.src)">
+      <p>U Shape Cut - ₹250</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="Vshape.jpeg" onclick="openImage(this.src)">
+      <p>V Shape Cut    - ₹250</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="Baby1.jpeg" onclick="openImage(this.src)">
+      <p>Baby Cut - ₹150</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+  </div>
+
+  <!-- MAKEUP -->
+  <div id="makeup" class="service-box" style="display:none;">
+    <div class="card">
+      <img src="normalmakeup.jpeg" onclick="openImage(this.src)">
+      <p>Bridal Makeup - ₹7999</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="HDmakeup.jpeg" onclick="openImage(this.src)">
+      <p>HD Makeup - ₹9999</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="Airbrushmakeup.jpeg" onclick="openImage(this.src)">
+      <p>AirBrush Makeup - ₹17999</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+  </div>
+
+  <!-- MEHENDI -->
+  <div id="mehendi" class="service-box" style="display:none;">
+    <div class="card">
+      <img src="bridalmehandi.jpeg" onclick="openImage(this.src)">
+      <p>Bridal Mehendi - ₹4999</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="engmehandi.jpeg" onclick="openImage(this.src)">
+      <p>Engagement Mehendi - ₹3999</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="bbyshowermehandi.jpeg" onclick="openImage(this.src)">
+      <p>BabyShower Mehendi - ₹1499</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="legmehandi.jpeg" onclick="openImage(this.src)">
+      <p>Leg Mehandi - ₹999</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      <img src="arabicmehandi.jpeg" onclick="openImage(this.src)">
+      <p>arabic Mehendi - ₹499</p>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+  </div>
+  
+  <div id="extra" class="service-box" style="display:none;">
+    <div class="card">
+      Hair Wash- ₹150 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Hair Spa - ₹800 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Straightening- ₹3000 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Hair Coloring - ₹1000 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    <div class="card">
+      Smoothing - ₹3000 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+     <div class="card">
+      Pedicure - ₹600 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+     <div class="card">
+      Manicure - ₹400 <br>
+      <a href="https://wa.me/8754948539" class="btn">Book Now</a>
+    </div>
+    
+  </div>
+
+</section>
+
+<!-- POPUP -->
+<div id="popup" onclick="closePopup()">
+  <img id="popup-img">
+</div>
+
+<!-- OFFERS -->
+<section>
+  <h2>Offers 🎁</h2>
+  <div class="offer">Bridal Package Offer - 10% OFF</div>
+  <div class="offer">HairCut+ Hair Spa Combo - ₹1200</div>
+  <div class="offer">Saree Prepleating(2) - ₹500</div>
+  
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <h2>Customer Reviews ⭐</h2>
+  <div class="review">"Super makeup! Highly recommended 💖"</div>
+  <div class="review">"Best mehendi design in town 😍"</div>
+</section>
+
+<a href="https://wa.me/919876543210" class="whatsapp">💬</a>
+</body>
+
+<script src="script.js"></script>
+</html>
