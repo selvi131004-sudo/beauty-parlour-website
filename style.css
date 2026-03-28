@@ -97,13 +97,13 @@ iframe {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: green;
+  background: #25D366;
   color: white;
-  padding: 12px;
+  font-size: 22px;
+  padding: 15px;
   border-radius: 50%;
-  text-decoration: none;
+  z-index: 9999;   /* முக்கியம் 🔥 */
 }
-
 /* SOCIAL ICONS */
 .social-icons {
   position: fixed;
