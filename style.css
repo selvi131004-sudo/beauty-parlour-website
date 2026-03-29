@@ -10,6 +10,12 @@ body {
 
 /* ---------- NAVBAR ---------- */
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,25 +51,22 @@ nav ul li a {
 
 /* ---------- HERO / SECTION ---------- */
 section {
-  height: 90vh;
+  min-height: 100vh;   /* full screen minimum */
+  height: auto;        /* grow based on content */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+
   background: linear-gradient(rgba(255,77,136,0.6), rgba(255,255,255,0.6)),
               url("about.jpg");
   background-size: cover;
   background-position: center;
+
   color: #fff;
-}
-
-section h1 {
-  font-size: 36px;
-}
-
-section p {
-  font-size: 18px;
+  padding: 20px;       /* extra spacing */
 }
 
 /* ---------- BUTTON ---------- */
@@ -236,18 +239,40 @@ iframe {
 
 /* ---------- OFFERS / REVIEWS ---------- */
 
-.offer, .review {
-  width: 160px;      /* desktop size */
+/* ---------- OFFER ---------- */
+.offer {
+  width: 90%;
+  max-width: 400px;
   padding: 15px;
-  margin: 20px auto; /* center horizontally */
+  margin: 15px auto;
   border-radius: 10px;
   text-align: center;
+  background: white;
+  box-shadow: 0 0 10px #ddd;
+  font-weight: bold;
 }
 
+/* ---------- REVIEW ---------- */
+.review {
+  width: 250px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+
+  background: #fff;              /* change to white */
+  color: #333;                  /* dark text */
+  box-shadow: 0 0 10px #ccc;    /* little shadow */
+  font-size: 15px;
+  line-height: 1.5;
+}
 @media (max-width: 768px) {
-  .offer, .review {
-    width: 90%;        /* almost full width on mobile */
-    margin-top: 15px;
+  .offer {
+    width: 95%;
+  }
+
+  .review {
+    width: 90%;
   }
 }
 /* ---------- ABOUT ---------- */
